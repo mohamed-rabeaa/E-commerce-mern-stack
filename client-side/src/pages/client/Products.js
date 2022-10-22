@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { addItem } from '../../redux/reducers/cartSlice';
 
 const Products = () => {
-    const { error, resMsg, products } = useSelector((state) => ({ ...state.product }));
+    const { products } = useSelector((state) => ({ ...state.product }));
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -19,7 +19,6 @@ const Products = () => {
 
     return (
         <div className=' bg-white shadow-md p-2 mx-6 mt-20'>
-            <ServerMessage resMsg={resMsg} error={error} />
             <p className='pl-4 py-2 text-2xl bg-white shadow-md font-bold text-slate-500'>
                 All Products
             </p>

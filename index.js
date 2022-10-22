@@ -31,6 +31,11 @@ app.use(express.static(path.join(`${__dirname}/client-side`)));
 app.use('/api', clientRoutes)
 app.use('/api/admin', adminRoutes)
 
+app.use(express.static('client-side/build'))
+app.get('*', (req, res)=>{
+  res.sendFile(`${__dirname}/client-side/build/index.html`)
+})
+
 app.listen(process.env.PORT, () => {
   console.log(`Server running on port ${process.env.PORT}`);
 })
