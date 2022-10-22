@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { allProduct } from "../.././redux/reducers/productSlice";
-import ServerMessage from '../.././component/client/ServerMessage'
 import { Link } from 'react-router-dom';
 import { addItem } from '../../redux/reducers/cartSlice';
 
@@ -15,7 +14,7 @@ const Products = () => {
         if (products.length <= 0) {
             dispatch(allProduct())
         }
-    }, [dispatch])
+    }, [dispatch, products])
 
     return (
         <div className=' bg-white shadow-md p-2 mx-6 mt-20'>
