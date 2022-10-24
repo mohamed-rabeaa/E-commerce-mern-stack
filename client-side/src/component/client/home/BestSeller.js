@@ -8,8 +8,10 @@ import { searchProduct } from "../../../redux/reducers/productSlice";
 import ServerMessage from '.././ServerMessage'
 
 const BestSellerProduct = () => {
+    console.log('best seller running ....')
 
-    const { error, resMsg, bestSellerItems } = useSelector((state) => ({ ...state.product }));
+
+    const { productError, productResMsg, bestSellerItems } = useSelector((state) => ({ ...state.product }));
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -17,8 +19,9 @@ const BestSellerProduct = () => {
     }, [])
 
     return (
+        
         <div className=' bg-white shadow-md p-2 mx-6 mt-20'>
-            <ServerMessage resMsg={resMsg} error={error} />
+            <ServerMessage resMsg={productResMsg} error={productError} />
             <p className='pl-4 py-2 text-2xl bg-white shadow-md font-bold text-slate-500'>
                 Best Seller
             </p>
@@ -37,12 +40,13 @@ const BestSellerProduct = () => {
                                     <p className='text-lg text-slate-700 h-14 overflow-hidden'>
                                         {item.name}
                                     </p>
-                                    <div className='flex mt-4'>
-                                        <button onClick={() => { dispatch(addItem({ id: item._id })) }} className='text-md text-green-500 border-2 rounded-md px-2 sm:px-6'>
+                                  
+                                        <button 
+                                        onClick={() => { dispatch(addItem({ id: item._id })) }} 
+                                        className='w-full mt-4 text-md text-slate-800 py-1 border-2 rounded-md px-2 sm:px-6 hover:bg-slate-800 hover:text-white transition ease-in-out delay-150'>
                                             Add to cart
                                         </button>
-                                        <FontAwesomeIcon icon={faHeart} className='w-6 h-6 ml-4' />
-                                    </div>
+                                
                                 </div>
                             </div>
                         )

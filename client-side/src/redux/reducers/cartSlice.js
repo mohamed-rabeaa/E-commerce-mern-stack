@@ -1,12 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import config from "../../config";
+const SERVER_URL = process.env.REACT_APP_BASE_URL
 
 const Authorization = `Bearer ${JSON.parse(localStorage.getItem('token'))}` || "";
 
 const header = { headers: { Authorization } };
 
-const SERVER_URL = config.apiUrl
+//const SERVER_URL = config.apiUrl
 
 export const getCart = createAsyncThunk(
     "product/getProduct",
@@ -122,94 +123,93 @@ export const remove = createAsyncThunk(
 const cartSlice = createSlice({
     name: "cart",
     initialState: {
-        data: [],
         carts: [],
         cart: {},
-        resMsg: "",
-        error: [],
-        loading: false
+        cartResMsg: "",
+        cartError: [],
+        cartLoading: false
     },
     reducers: ({}),
     extraReducers: ({
         [getCart.pending]: (state, action) => {
-            state.loading = true;
+            state.cartLoading = true;
         },
         [getCart.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.error = [];
+            state.cartLoading = false;
+            state.cartError = [];
             state.cart = action.payload.data
-            state.resMsg = action.payload.message
+            state.cartResMsg = action.payload.message
         },
         [getCart.rejected]: (state, action) => {
-            state.loading = false;
-            state.resMsg = "";
-            state.error = action.payload.message;
+            state.cartLoading = false;
+            state.cartResMsg = "";
+            state.cartError = action.payload.message;
         },
 
         [addItem.pending]: (state, action) => {
-            state.loading = true;
-            state.resMsg = '';
+            state.cartLoading = true;
+            state.cartResMsg = '';
         },
         [addItem.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.error = [];
-            state.resMsg = action.payload.message
+            state.cartLoading = false;
+            state.cartError = [];
+            state.cartResMsg = action.payload.message
         },
         [addItem.rejected]: (state, action) => {
-            state.loading = false;
-            state.resMsg = "";
-            state.error = action.payload.message;
+            state.cartLoading = false;
+            state.cartResMsg = "";
+            state.cartError = action.payload.message;
         },
 
         [increase.pending]: (state, action) => {
-            state.loading = true;
+            state.cartLoading = true;
         },
         [increase.fulfilled]: (state, action) => {
-            state.loading = false;
+            state.cartLoading = false;
             state.cart = action.payload.data
-            state.resMsg = action.payload.message
+            state.cartResMsg = action.payload.message
         },
         [increase.rejected]: (state, action) => {
-            state.loading = false;
-            state.error = action.payload.message;
+            state.cartLoading = false;
+            state.cartError = action.payload.message;
         },
 
         [dicrease.pending]: (state, action) => {
-            state.loading = true;
+            state.cartLoading = true;
         },
         [dicrease.fulfilled]: (state, action) => {
-            state.loading = false;
+            state.cartLoading = false;
             state.cart = action.payload.data
-            state.resMsg = action.payload.message
+            state.cartResMsg = action.payload.message
         },
         [dicrease.rejected]: (state, action) => {
-            state.loading = false;
-            state.error = action.payload.message;
+            state.cartLoading = false;
+            state.cartError = action.payload.message;
         },
 
         [remove.pending]: (state, action) => {
-            state.loading = true;
+            state.cartLoading = true;
         },
         [remove.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.resMsg = action.payload.message
+            state.cartLoading = false;
+            state.cartResMsg = action.payload.message
         },
         [remove.rejected]: (state, action) => {
-            state.loading = false;
-            state.error = action.payload.message;
+            state.cartLoading = false;
+            state.cartError = action.payload.message;
         },
 
         [removeProduct.pending]: (state, action) => {
-            state.loading = true;
+            state.cartLoading = true;
         },
         [removeProduct.fulfilled]: (state, action) => {
-            state.loading = false;
+            state.cartLoading = false;
             state.cart = action.payload.data
-            state.resMsg = action.payload.message
+            state.cartResMsg = action.payload.message
         },
         [removeProduct.rejected]: (state, action) => {
-            state.loading = false;
-            state.error = action.payload.message;
+            state.cartLoading = false;
+            state.cartError = action.payload.message;
         },
     })
 })

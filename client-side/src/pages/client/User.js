@@ -6,11 +6,11 @@ import ServerMessage from '../../component/client/ServerMessage';
 
 
 const User = () => {
-  const { error, resMsg } = useSelector((state) => ({ ...state.cart }));
+  const { cartError, cartResMsg } = useSelector((state) => ({ ...state.cart }));
 
   return (
     <>
-      <ServerMessage resMsg={resMsg} error={error} />
+      <ServerMessage resMsg={cartResMsg} error={cartError} />
 
       <div className='grid grid-cols-1 md:grid-cols-2 gap-14'>
         <UserInfo />

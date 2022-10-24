@@ -13,7 +13,7 @@ import TextError from '../.././component/client/form/TextError'
 import ServerMessage from '../.././component/client/ServerMessage'
 
 const UpdateCategory = (props) => {
-    const { error, resMsg } = useSelector((state) => ({ ...state.category }));
+    const { categoryError, categoryResMsg } = useSelector((state) => ({ ...state.category }));
     const dispatch = useDispatch();
     const { data } = props
     const initialValues = {
@@ -30,7 +30,7 @@ const UpdateCategory = (props) => {
     }
     return (
         <>
-            <ServerMessage resMsg={resMsg} error={error} />
+            <ServerMessage resMsg={categoryResMsg} error={categoryError} />
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}

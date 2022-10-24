@@ -15,8 +15,8 @@ const CartCheckOut = () => {
   }
 
   return (
-    <div className='w-full h-full my-8'>
-      <div className='bg-white border-2 shadow-md rounded-md overflow-hidden w-3/4 mx-auto '>
+    <div className='w-full  h-full mx-auto my-8'>
+      <div className='bg-white border-2 shadow-md rounded-md overflow-hidden w-3/4 max-w-md mx-auto '>
         <p className='bg-blue-500 text-2xl font-bold text-gray-700 text-center py-2'>Check out</p>
 
         <div className='mt-14'>

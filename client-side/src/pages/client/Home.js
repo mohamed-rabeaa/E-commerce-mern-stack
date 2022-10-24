@@ -8,6 +8,8 @@ import Header from '../../component/client/home/Header';
 import CategoryProduct from '../../component/client/home/CategoryProduct';
 
 export default function Home() {
+	console.log('home running ....')
+
 
 	return (
 		<>

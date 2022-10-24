@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import config from "../../config";
-const SERVER_URL = config.apiUrl
+//import config from "../../config";
+//const SERVER_URL = config.apiUrl
+const SERVER_URL = process.env.REACT_APP_BASE_URL
 export const register = createAsyncThunk(
     "auth/register",
     async ({ values }, thunkApi) => {
@@ -99,94 +100,95 @@ export const resetPassword = createAsyncThunk(
 const authSlice = createSlice({
     name: "auth",
     initialState: {
-        user: null,
-        resMsg: "",
-        error: [],
-        loading: false
+        user: {},
+        authResMsg: "",
+        authError: [],
+        authLoading: false
     },
     reducers: ({}),
     extraReducers: ({
         [register.pending]: (state, action) => {
-            state.loading = true;
+            state.authLoading = true;
         },
         [register.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.error = [];
-            state.resMsg = action.payload.message
+            state.authLoading = false;
+            state.authError = [];
+            state.authResMsg = action.payload.message
         },
         [register.rejected]: (state, action) => {
-            state.loading = false;
-            state.resMsg = "";
-            state.error = action.payload.message;
+            state.authLoading = false;
+            state.authResMsg = "";
+            state.authError = action.payload.message;
         },
 
         [verify.pending]: (state, action) => {
-            state.loading = true;
+            state.authLoading = true;
         },
         [verify.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.error = [];
+            state.authLoading = false;
+            state.authError = [];
+            state.user = action.payload.data
             localStorage.setItem("profile", JSON.stringify({ ...action.payload.data }));
             localStorage.setItem("token", JSON.stringify({ ...action.payload.token }));
-            state.resMsg = action.payload.message
+            state.authResMsg = action.payload.message
         },
         [verify.rejected]: (state, action) => {
-            state.loading = false;
-            state.resMsg = "";
-            state.error = action.payload.message;
+            state.authLoading = false;
+            state.authResMsg = "";
+            state.authError = action.payload.message;
         },
 
         [sendVerifyToken.pending]: (state, action) => {
-            state.loading = true;
+            state.authLoading = true;
         },
         [sendVerifyToken.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.error = [];
-            state.resMsg = action.payload.message
+            state.authLoading = false;
+            state.authError = [];
+            state.authResMsg = action.payload.message
         },
         [sendVerifyToken.rejected]: (state, action) => {
-            state.loading = false;
-            state.resMsg = "";
-            state.error = action.payload.message;
+            state.authLoading = false;
+            state.authResMsg = "";
+            state.authError = action.payload.message;
         },
 
         [login.pending]: (state, action) => {
-            state.loading = true;
+            state.authLoading = true;
         },
         [login.fulfilled]: (state, action) => {
-            state.loading = false;
+            state.authLoading = false;
             localStorage.setItem("profile", JSON.stringify({ ...action.payload.data }));
             localStorage.setItem("token", JSON.stringify(action.payload.token));
-            state.resMsg = action.payload.message
+            state.authResMsg = action.payload.message
         },
         [login.rejected]: (state, action) => {
-            state.loading = false;
-            state.error = action.payload.message;
+            state.authLoading = false;
+            state.authError = action.payload.message;
         },
         [forgetPassword.pending]: (state, action) => {
-            state.loading = true;
+            state.authLoading = true;
         },
         [forgetPassword.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.resMsg = action.payload.message
+            state.authLoading = false;
+            state.authResMsg = action.payload.message
         },
         [forgetPassword.rejected]: (state, action) => {
-            state.loading = false;
-            state.error = action.payload.message;
+            state.authLoading = false;
+            state.authError = action.payload.message;
         },
 
         [resetPassword.pending]: (state, action) => {
-            state.loading = true;
+            state.authLoading = true;
         },
         [resetPassword.fulfilled]: (state, action) => {
-            state.loading = false;
+            state.authLoading = false;
             localStorage.setItem("profile", JSON.stringify({ ...action.payload.data }));
             localStorage.setItem("token", JSON.stringify({ ...action.payload.token }));
-            state.resMsg = action.payload.message
+            state.authResMsg = action.payload.message
         },
         [resetPassword.rejected]: (state, action) => {
-            state.loading = false;
-            state.error = action.payload.message;
+            state.authLoading = false;
+            state.authError = action.payload.message;
         },
 
     })

@@ -6,7 +6,10 @@ const Authorization = `Bearer ${JSON.parse(localStorage.getItem('token'))}` || "
 
 const header = { headers: { Authorization } };
 
-const SERVER_URL = config.apiUrl
+//const SERVER_URL = config.apiUrl
+const SERVER_URL = process.env.REACT_APP_BASE_URL
+
+console.log('first', SERVER_URL)
 
 export const getProduct = createAsyncThunk(
     "product/getProduct",
@@ -116,102 +119,102 @@ export const searchProduct = createAsyncThunk(
 const productSlice = createSlice({
     name: "product",
     initialState: {
-        data: [],
+        productData: [],
         products: [],
         product: {},
         recentItems: [],
         bestSellerItems: [],
-        resMsg: "",
-        error: [],
-        loading: false
+        productResMsg: "",
+        productError: [],
+        productLoading: false
     },
     reducers: ({}),
     extraReducers: ({
         [getProduct.pending]: (state, action) => {
-            state.loading = true;
+            state.productLoading = true;
         },
         [getProduct.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.error = [];
+            state.productLoading = false;
+            state.productError = [];
             state.product = action.payload.data
-            state.resMsg = action.payload.message
+            state.productResMsg = action.payload.message
         },
         [getProduct.rejected]: (state, action) => {
-            state.loading = false;
-            state.resMsg = "";
-            state.error = action.payload.message;
+            state.productLoading = false;
+            state.productResMsg = "";
+            state.productError = action.payload.message;
         },
 
         [searchProduct.pending]: (state, action) => {
-            state.loading = true;
+            state.productLoading = true;
         },
         [searchProduct.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.error = [];
+            state.productLoading = false;
+            state.productError = [];
             state.recentItems = action.payload.recentProductData || state.recentItems
             state.bestSellerItems = action.payload.bestSellerData || state.bestSellerItems
-            //state.resMsg = action.payload.message
+            //state.productResMsg = action.payload.message
         },
         [searchProduct.rejected]: (state, action) => {
-            state.loading = false;
-            state.resMsg = "";
-            state.error = action.payload.message;
+            state.productLoading = false;
+            state.productResMsg = "";
+            state.productError = action.payload.message;
         },
 
         [allProduct.pending]: (state, action) => {
-            state.loading = true;
+            state.productLoading = true;
         },
         [allProduct.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.error = [];
+            state.productLoading = false;
+            state.productError = [];
             state.products = action.payload.data
-            state.resMsg = action.payload.message
+            state.productResMsg = action.payload.message
         },
         [allProduct.rejected]: (state, action) => {
-            state.loading = false;
-            state.resMsg = "";
-            state.error = action.payload.message;
+            state.productLoading = false;
+            state.productResMsg = "";
+            state.productError = action.payload.message;
         },
 
         [create.pending]: (state, action) => {
-            state.loading = true;
-            state.resMsg = '';
+            state.productLoading = true;
+            state.productResMsg = '';
         },
         [create.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.error = [];
-            state.data = action.payload.data
-            state.resMsg = action.payload.message
+            state.productLoading = false;
+            state.productError = [];
+            state.productData = action.payload.data
+            state.productResMsg = action.payload.message
         },
         [create.rejected]: (state, action) => {
-            state.loading = false;
-            state.resMsg = "";
-            state.error = action.payload.message;
+            state.productLoading = false;
+            state.productResMsg = "";
+            state.productError = action.payload.message;
         },
 
         [update.pending]: (state, action) => {
-            state.loading = true;
+            state.productLoading = true;
         },
         [update.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.data = action.payload.data
-            state.resMsg = action.payload.message
+            state.productLoading = false;
+            state.productData = action.payload.data
+            state.productResMsg = action.payload.message
         },
         [update.rejected]: (state, action) => {
-            state.loading = false;
-            state.error = action.payload.message;
+            state.productLoading = false;
+            state.productError = action.payload.message;
         },
 
         [remove.pending]: (state, action) => {
-            state.loading = true;
+            state.productLoading = true;
         },
         [remove.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.resMsg = action.payload.message
+            state.productLoading = false;
+            state.productResMsg = action.payload.message
         },
         [remove.rejected]: (state, action) => {
-            state.loading = false;
-            state.error = action.payload.message;
+            state.productLoading = false;
+            state.productError = action.payload.message;
         },
     })
 })

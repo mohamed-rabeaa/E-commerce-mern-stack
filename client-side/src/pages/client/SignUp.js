@@ -14,7 +14,7 @@ import SignUpLogo from '../.././component/client/form/SignUpLogo'
 import ServerMessage from '../.././component/client/ServerMessage'
 
 function SignUp() {
-  const { error, resMsg } = useSelector((state) => ({ ...state.auth }));
+  const { authError, authResMsg } = useSelector((state) => ({ ...state.auth }));
   const dispatch = useDispatch();
 
   const initialValues = {
@@ -43,7 +43,7 @@ function SignUp() {
   }
   return (
     <>
-      <ServerMessage resMsg={resMsg} error={error} />
+      <ServerMessage resMsg={authResMsg} error={authError} />
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

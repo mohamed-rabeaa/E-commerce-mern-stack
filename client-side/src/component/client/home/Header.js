@@ -1,6 +1,8 @@
 import React from 'react'
 
 const Header = () => {
+	console.log('header running ....')
+
 	return (
 		<header >
 			<div>

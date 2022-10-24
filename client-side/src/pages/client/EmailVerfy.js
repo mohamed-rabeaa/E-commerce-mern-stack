@@ -6,7 +6,7 @@ import ServerMessage from '../.././component/client/ServerMessage'
 
 export default function EmailVerify() {
 
-  const { error, resMsg } = useSelector((state) => ({ ...state.auth }));
+  const { authError, authResMsg } = useSelector((state) => ({ ...state.auth }));
 
   const dispatch = useDispatch();
 
@@ -20,9 +20,9 @@ export default function EmailVerify() {
 
   return (
     <>
-      <ServerMessage resMsg={resMsg} error={error} />
+      <ServerMessage resMsg={authResMsg} error={authError} />
 
-      {resMsg &&
+      {authResMsg &&
         <div className="w-full height-full flex items-center justify-center content-center">
           <Link to="/" className="bg-green-400 px-8 py-4 rounded-md" >
             move to home page

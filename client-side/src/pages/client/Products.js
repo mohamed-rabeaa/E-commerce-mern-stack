@@ -17,11 +17,11 @@ const Products = () => {
     }, [dispatch, products])
 
     return (
-        <div className=' bg-white shadow-md p-2 mx-6 mt-20'>
+        <div className=' bg-white shadow-md p-2'>
             <p className='pl-4 py-2 text-2xl bg-white shadow-md font-bold text-slate-500'>
                 All Products
             </p>
-            <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-10 justify-items-center'>
+            <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mt-10 justify-items-center'>
                 {products.length > 0 &&
                     products.map(item => {
                         return (
@@ -36,12 +36,13 @@ const Products = () => {
                                     <p className='text-lg text-slate-700 h-14 overflow-hidden'>
                                         {item.name}
                                     </p>
-                                    <div className='flex mt-4'>
-                                        <button onClick={() => { dispatch(addItem({ id: item._id })) }} className='text-md text-green-500 border-2 rounded-md px-2 sm:px-6'>
+                                        <button 
+                                        onClick={() => { dispatch(addItem({ id: item._id })) }} 
+                                        className='w-full mt-4 text-md text-slate-800 py-1 border-2 rounded-md px-2 sm:px-6 hover:bg-slate-800 hover:text-white transition ease-in-out delay-150'
+                                        >
                                             Add to cart
                                         </button>
-                                        <FontAwesomeIcon icon={faHeart} className='w-6 h-6 ml-4' />
-                                    </div>
+                                    
                                 </div>
                             </div>
                         )

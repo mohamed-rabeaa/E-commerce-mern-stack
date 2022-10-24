@@ -7,6 +7,8 @@ import { searchProduct } from "../../../redux/reducers/productSlice";
 import { addItem } from "../../../redux/reducers/cartSlice";
 
 const RecentAdd = () => {
+    console.log('recent add running ....')
+
     const { recentItems } = useSelector((state) => ({ ...state.product }));
     const dispatch = useDispatch();
 
@@ -35,12 +37,12 @@ const RecentAdd = () => {
                                         {item.name}
                                     </p>
                                     
-                                    <div className='flex mt-4'>
-                                        <button onClick={()=>{dispatch(addItem({id: item._id}))}} className='text-md text-green-500 border-2 rounded-md px-2 sm:px-6'>
+                                    
+                                        <button 
+                                        onClick={()=>{dispatch(addItem({id: item._id}))}} 
+                                        className='w-full mt-4 text-md text-slate-800 py-1 border-2 rounded-md px-2 sm:px-6 hover:bg-slate-800 hover:text-white transition ease-in-out delay-150'>
                                             Add to cart
                                         </button>
-                                        <FontAwesomeIcon icon={faHeart} className='w-6 h-6 ml-4' />
-                                    </div>
                                 </div>
                             </div>
                         )

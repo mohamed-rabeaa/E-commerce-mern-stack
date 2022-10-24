@@ -16,7 +16,7 @@ import ServerMessage from '../.././component/client/ServerMessage'
 
 
 function Login() {
-  const { error, resMsg } = useSelector((state) => ({ ...state.auth }));
+  const { authError, authResMsg } = useSelector((state) => ({ ...state.auth }));
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -39,7 +39,7 @@ function Login() {
   }
   return (
     <>
-      <ServerMessage resMsg={resMsg} error={error} />
+      <ServerMessage resMsg={authResMsg} error={authError} />
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

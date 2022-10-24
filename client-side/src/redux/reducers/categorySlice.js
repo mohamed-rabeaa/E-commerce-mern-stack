@@ -6,7 +6,9 @@ const Authorization = `Bearer ${JSON.parse(localStorage.getItem('token'))}` || "
 
 const header = { headers: { Authorization } };
 
-const SERVER_URL = config.apiUrl
+//const SERVER_URL = config.apiUrl
+const SERVER_URL = process.env.REACT_APP_BASE_URL
+
 
 export const getCategory = createAsyncThunk(
     "category/getCategory",
@@ -119,99 +121,99 @@ export const remove = createAsyncThunk(
 const categorySlice = createSlice({
     name: "category",
     initialState: {
-        data: [],
+        categoryData: [],
         allCategories: [],
         oneCategory: {},
-        resMsg: "",
-        error: [],
-        loading: false
+        categoryResMsg: "",
+        categoryError: [],
+        categoryLoading: false
     },
     reducers: ({}),
     extraReducers: ({
         [getCategory.pending]: (state, action) => {
-            state.loading = true;
+            state.categoryLoading = true;
         },
         [getCategory.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.error = [];
+            state.categoryLoading = false;
+            state.categoryError = [];
             state.oneCategory = action.payload.data
-            state.resMsg = action.payload.message
+            state.categoryResMsg = action.payload.message
         },
         [getCategory.rejected]: (state, action) => {
-            state.loading = false;
-            state.resMsg = "";
-            state.error = action.payload.message;
+            state.categoryLoading = false;
+            state.categoryResMsg = "";
+            state.categoryError = action.payload.message;
         },
 
         [allCategory.pending]: (state, action) => {
-            state.loading = true;
+            state.categoryLoading = true;
         },
         [allCategory.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.error = [];
+            state.categoryLoading = false;
+            state.categoryError = [];
             state.allCategories = action.payload.data
-            state.resMsg = action.payload.message
+            state.categoryResMsg = action.payload.message
         },
         [allCategory.rejected]: (state, action) => {
-            state.loading = false;
-            state.resMsg = "";
-            state.error = action.payload.message;
+            state.categoryLoading = false;
+            state.categoryResMsg = "";
+            state.categoryError = action.payload.message;
         },
 
         [parentCategory.pending]: (state, action) => {
-            state.loading = true;
+            state.categoryLoading = true;
         },
         [parentCategory.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.error = [];
+            state.categoryLoading = false;
+            state.categoryError = [];
             state.allCategories = action.payload
-            state.resMsg = action.payload.message
+            state.categoryResMsg = action.payload.message
         },
         [parentCategory.rejected]: (state, action) => {
-            state.loading = false;
-            state.resMsg = "";
-            state.error = action.payload.message;
+            state.categoryLoading = false;
+            state.categoryResMsg = "";
+            state.categoryError = action.payload.message;
         },
 
         [create.pending]: (state, action) => {
-            state.loading = true;
-            state.resMsg = ''
+            state.categoryLoading = true;
+            state.categoryResMsg = ''
         },
         [create.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.error = [];
-            state.data = action.payload.data
-            state.resMsg = action.payload.message
+            state.categoryLoading = false;
+            state.categoryError = [];
+            state.categoryData = action.payload.data
+            state.categoryResMsg = action.payload.message
         },
         [create.rejected]: (state, action) => {
-            state.loading = false;
-            state.resMsg = "";
-            state.error = action.payload.message;
+            state.categoryLoading = false;
+            state.categoryResMsg = "";
+            state.categoryError = action.payload.message;
         },
 
         [update.pending]: (state, action) => {
-            state.loading = true;
+            state.categoryLoading = true;
         },
         [update.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.data = action.payload.data
-            state.resMsg = action.payload.message
+            state.categoryLoading = false;
+            state.categoryData = action.payload.data
+            state.categoryResMsg = action.payload.message
         },
         [update.rejected]: (state, action) => {
-            state.loading = false;
-            state.error = action.payload.message;
+            state.categoryLoading = false;
+            state.categoryError = action.payload.message;
         },
 
         [remove.pending]: (state, action) => {
-            state.loading = true;
+            state.categoryLoading = true;
         },
         [remove.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.resMsg = action.payload.message
+            state.categoryLoading = false;
+            state.categoryResMsg = action.payload.message
         },
         [remove.rejected]: (state, action) => {
-            state.loading = false;
-            state.error = action.payload.message;
+            state.categoryLoading = false;
+            state.categoryError = action.payload.message;
         },
     })
 })

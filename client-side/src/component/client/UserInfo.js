@@ -5,7 +5,7 @@ import React from 'react'
 const UserInfo = () => {
   const userData = JSON.parse(localStorage.getItem('profile')) || null
   return (
-    <div className='px-16'>
+    <div className='px-2 md:px-16'>
       <div className='mx-auto mt-20 bg-white shadow-md rounded-md text-center'>
         {userData &&
           <div className='flex p-8 md:space-x-80'>
@@ -22,7 +22,7 @@ const UserInfo = () => {
               </p>
 
               <div className='flex mt-6'>
-                <button className='text-xl text-green-500 border-2 rounded-md px-2 sm:px-6 mx-auto'>
+                <button className='w-full py-2 text-2xl text-red-500 border-2 rounded-md px-2 sm:px-6 mx-auto hover:bg-slate-800 hover:text-white transition ease-in-out delay-150'>
                   Delete
                   <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
                 </button>

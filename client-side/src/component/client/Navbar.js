@@ -1,27 +1,36 @@
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faBell } from '@fortawesome/free-solid-svg-icons'
 
-const navigation = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'Categories', href: '/categories', current: false },
-  { name: 'Products', href: '/products', current: false },
-  { name: 'Cart', href: '/cart', current: false },
-]
 
-const userData = JSON.parse(localStorage.getItem('profile')) || ""
-
-const signOut = () => {
-  localStorage.clear()
-}
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function Navbar() {
+  const [userData , setUserData] = useState(JSON.parse(localStorage.getItem('profile')) || "")
+  const navigation = [
+    { name: 'Home', href: '/', current: true },
+    { name: 'Categories', href: '/categories', current: false },
+    { name: 'Products', href: '/products', current: false },
+    { name: 'Cart', href: '/cart', current: false },
+  ]
+  
+  //let userData = JSON.parse(localStorage.getItem('profile')) || ""
+  
+  // useEffect(() => {
+  //   userData = JSON.parse(localStorage.getItem('profile')) || ""
+  // })
+  
+  
+  const signOut = () => {
+    setUserData("")
+    localStorage.clear()
+  }
+  console.log('user data is :',userData)
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -184,7 +193,7 @@ export default function Navbar() {
                         <span className="sr-only">Open user menu</span>
                         <img
                           className="h-8 w-8 rounded-full"
-                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                          src={userData.img ? userData.img: 'assets/imgs/default-user.png'}
                           alt=""
                         />
                       </Menu.Button>

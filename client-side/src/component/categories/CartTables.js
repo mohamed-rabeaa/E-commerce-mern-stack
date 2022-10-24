@@ -13,25 +13,25 @@ const Tabels = () => {
 
     return (
 
-        <div className="col-span-2 overflow-x-auto relative shadow-md sm:rounded-lg p-8">
+        <div className="col-span-2 overflow-x-auto relative shadow-md sm:rounded-lg py-8 px-2 md:p-8">
             {Object.keys(cart).length === 0 ?
                 <div>no product in cart</div> :
-                <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <table className="w-full text-sm text-left text-gray-500">
+                    <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>
-                            <th scope="col" className="py-3 px-6">
-                                <span >Image</span>
+                            <th scope="col" className="py-3 xs:px-2  md:px-6">
+                                Image
                             </th>
-                            <th scope="col" className="py-3 px-6">
+                            <th scope="col" className="py-3 xs:px-2 md:px-6">
                                 Name
                             </th>
-                            <th scope="col" className="py-3 px-6">
+                            <th scope="col" className="py-3 xs:px-2 md:px-6">
                                 Quantity
                             </th>
-                            <th scope="col" className="py-3 px-6">
+                            <th scope="col" className="py-3 xs:px-2 md:px-6">
                                 Price
                             </th>
-                            <th scope="col" className="py-3 px-6">
+                            <th scope="col" className="py-3 xs:px-2 md:px-6">
                                 Delete
                             </th>
                         </tr>
@@ -39,15 +39,15 @@ const Tabels = () => {
                     <tbody>
                         {cart.cartItems.map(item => {
                             return (
-                                <tr key={item.product._id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <td className="p-4 w-32">
+                                <tr key={item.product._id} className="bg-white border-b  hover:bg-gray-50">
+                                    <td className="md:p-4">
                                         <img src={item.product.img} alt='item' className='w-16 h-16' />
                                     </td>
-                                    <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                                    <td className="py-4 md:px-6 font-semibold text-gray-900 text-xs md:text-md ">
                                         {item.product.name}
                                     </td>
-                                    <td className="py-4 px-6">
-                                        <div className="flex items-center space-x-3">
+                                    <td className="py-4 md:px-6">
+                                        <div className="flex items-center space-x-1 md:space-x-3">
                                             {item.quantity > 1 &&
                                                 <button onClick={() => { dispatch(dicrease({ id: item.product._id })) }} className="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white rounded-full border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
                                                     <span className="sr-only">Quantity button</span>
@@ -55,7 +55,7 @@ const Tabels = () => {
                                                 </button>
                                             }
                                             <div>
-                                                <span className="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-center">
+                                                <span className="bg-gray-50 w-8 md:w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 md:py-1 text-center">
                                                     {item.quantity}
                                                 </span>
                                             </div>
@@ -65,12 +65,12 @@ const Tabels = () => {
                                             </button>
                                         </div>
                                     </td>
-                                    <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                                    <td className="py-4 md:px-6 font-semibold text-gray-900 text-xs md:text-md">
                                         {item.product.price}
                                     </td>
-                                    <td className="py-4 px-6">
+                                    <td className="py-4 md:px-6">
                                         <button onClick={() => { dispatch(removeProduct({ id: item.product._id })) }} className="font-medium text-red-600 dark:text-red-500 hover:underline">
-                                            <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
+                                            <FontAwesomeIcon icon={faTrashCan} className='w-4 h-4 md:w-6 md:h-6 ml-4' />
                                         </button>
                                     </td>
                                 </tr>

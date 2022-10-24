@@ -15,7 +15,7 @@ import ServerMessage from '../client/ServerMessage';
 
 const AddProduct = () => {
   const { allCategories } = useSelector((state) => ({ ...state.category }));
-  const { resMsg, error } = useSelector((state) => ({ ...state.product }));
+  const { productResMsg, productError } = useSelector((state) => ({ ...state.product }));
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(allCategory())
@@ -49,7 +49,7 @@ const AddProduct = () => {
   }
   return (
     <>
-      <ServerMessage resMsg={resMsg} error={error} />
+      <ServerMessage resMsg={productResMsg} error={productError} />
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

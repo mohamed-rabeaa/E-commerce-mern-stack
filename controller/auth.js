@@ -202,6 +202,7 @@ exports.login = async (req, res) => {
       lastName: user.lastName,
       email: user.email,
       admin: user.admin,
+      img: user.img || '',
       createdAt: user.createdAt
     }
 

@@ -14,7 +14,7 @@ import ServerMessage from '../.././component/client/ServerMessage'
 
 
 const AddCategory = () => {
-  const { error, resMsg, allCategories } = useSelector((state) => ({ ...state.category }));
+  const { categoryError, categoryResMsg, allCategories } = useSelector((state) => ({ ...state.category }));
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const AddCategory = () => {
   }
   return (
     <>
-      <ServerMessage resMsg={resMsg} error={error} />
+      <ServerMessage resMsg={categoryResMsg} error={categoryError} />
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

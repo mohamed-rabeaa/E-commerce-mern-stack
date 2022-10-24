@@ -26,7 +26,7 @@ const UpdateUser = () => {
     <div className='mt-20 px-16'>
 
       <div className='max-w-40 max-h-80 overflow-hidden'>
-        <img src={photo} alt='avatar' className='cover' />
+        <img src={photo} alt='avatar' className='w-60 h-60 rounded-full mx-auto' />
       </div>
 
       <form onSubmit={handleSubmit}>

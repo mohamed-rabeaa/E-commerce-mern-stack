@@ -14,7 +14,7 @@ import SignUpLogo from '../.././component/client/form/SignUpLogo'
 import ServerMessage from '../.././component/client/ServerMessage'
 
 function ResetPassword() {
-  const { error, resMsg } = useSelector((state) => ({ ...state.auth }));
+  const { authError, authResMsg } = useSelector((state) => ({ ...state.auth }));
   const dispatch = useDispatch();
   const param = useParams();
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ function ResetPassword() {
   }
   return (
     <>
-      <ServerMessage resMsg={resMsg} error={error} />
+      <ServerMessage resMsg={authResMsg} error={authError} />
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

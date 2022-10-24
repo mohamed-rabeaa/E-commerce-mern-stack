@@ -5,8 +5,10 @@ import { allCategory } from "../../../redux/reducers/categorySlice";
 import ServerMessage from '.././ServerMessage'
 
 const HomeCategory = () => {
+    console.log('home category running ....')
 
-    const { resMsg, error, allCategories } = useSelector((state) => ({ ...state.category }));
+
+    const { categoryResMsg, categoryError, allCategories } = useSelector((state) => ({ ...state.category }));
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -21,7 +23,7 @@ const HomeCategory = () => {
     return (
 
         <div className=' bg-white shadow-md p-2 mx-6 mt-20'>
-            <ServerMessage resMsg={resMsg} error={error} />
+            <ServerMessage resMsg={categoryResMsg} error={categoryError} />
             <p className='pl-4 py-2 text-2xl bg-white shadow-md font-bold text-slate-500'>
                 Show Categories
             </p>

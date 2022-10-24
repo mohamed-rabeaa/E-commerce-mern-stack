@@ -1,12 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import config from "../../config";
+//import config from "../../config";
 
 const Authorization = `Bearer ${JSON.parse(localStorage.getItem('token'))}` || "";
 
 const header = { headers: { Authorization } };
 
-const SERVER_URL = config.apiUrl
+//const SERVER_URL = config.apiUrl
+const SERVER_URL = process.env.REACT_APP_BASE_URL
+
 export const changePhoto = createAsyncThunk(
     "product/changePhoto",
     async ({ data }, thunkApi) => {
@@ -16,9 +18,9 @@ export const changePhoto = createAsyncThunk(
                 `${SERVER_URL}/user/changePhoto/`,
                 data,
                 header
-            );
-            return res.data
-        } catch (err) {
+                );
+                return res.data
+            } catch (err) {
             return rejectWithValue(err.response.data);
         }
     }
@@ -27,27 +29,26 @@ export const changePhoto = createAsyncThunk(
 const userSlice = createSlice({
     name: "user",
     initialState: {
-        user: {},
-        resMsg: "",
-        error: [],
-        loading: false
+        userResMsg: "",
+        userError: [],
+        userLoading: false
     },
     reducers: ({}),
     extraReducers: ({
 
         [changePhoto.pending]: (state, action) => {
-            state.loading = true;
+            state.userLoading = true;
         },
         [changePhoto.fulfilled]: (state, action) => {
-            state.loading = false;
-            state.error = [];
+            state.userLoading = false;
+            state.userError = [];
             localStorage.setItem("profile", JSON.stringify({ ...action.payload.data }));
-            state.resMsg = action.payload.message
+            state.userResMsg = action.payload.message
         },
         [changePhoto.rejected]: (state, action) => {
-            state.loading = false;
-            state.resMsg = "";
-            state.error = action.payload.message;
+            state.userLoading = false;
+            state.userResMsg = "";
+            state.userError = action.payload.message;
         },
     })
 })

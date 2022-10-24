@@ -14,7 +14,7 @@ import SignUpLogo from '../.././component/client/form/SignUpLogo'
 import ServerMessage from '../.././component/client/ServerMessage'
 
 function SendVerifyToken() {
-  const { error, resMsg } = useSelector((state) => ({ ...state.auth }));
+  const { authError, authResMsg } = useSelector((state) => ({ ...state.auth }));
   const dispatch = useDispatch();
 
   const initialValues = { email: '', }
@@ -31,7 +31,7 @@ function SendVerifyToken() {
   }
   return (
     <>
-      <ServerMessage resMsg={resMsg} error={error} />
+      <ServerMessage resMsg={authResMsg} error={authError} />
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
