@@ -1,13 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import config from "../../config";
 const SERVER_URL = process.env.REACT_APP_BASE_URL
 
 const Authorization = `Bearer ${JSON.parse(localStorage.getItem('token'))}` || "";
-
 const header = { headers: { Authorization } };
-
-//const SERVER_URL = config.apiUrl
 
 export const getCart = createAsyncThunk(
     "product/getProduct",
@@ -193,6 +189,7 @@ const cartSlice = createSlice({
         [remove.fulfilled]: (state, action) => {
             state.cartLoading = false;
             state.cartResMsg = action.payload.message
+            state.cart = {}
         },
         [remove.rejected]: (state, action) => {
             state.cartLoading = false;

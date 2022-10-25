@@ -1,5 +1,3 @@
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { allProduct } from "../../../redux/reducers/productSlice";
@@ -9,7 +7,6 @@ import { Link } from 'react-router-dom';
 import { addItem } from '../../../redux/reducers/cartSlice';
 
 const CategoryProduct = (props) => {
-    console.log('category product running ....')
 
     const { productError, productResMsg, products } = useSelector((state) => ({ ...state.product }));
     const { allCategories } = useSelector((state) => ({ ...state.category }));

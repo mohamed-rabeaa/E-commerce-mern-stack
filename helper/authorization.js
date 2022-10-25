@@ -5,10 +5,7 @@ const JWT = require('jsonwebtoken')
 exports.auth = async (req, res, next) => {
 
 	try{
-		//console.log('check authorization')
 
-		//console.log(req.body)
-		//console.log(req.headers)
 		if (!req.headers.authorization) return res.status(400).json({message: _auth.authorization})
 
 		 const token = req.headers.authorization.split(' ')[1];
@@ -16,8 +13,6 @@ exports.auth = async (req, res, next) => {
 		const user = await JWT.verify(token, process.env.SECRETJWT);
 
 		req.user = user;
-
-		console.log('user check success')
 
 		next();
 
@@ -35,7 +30,6 @@ exports.admin =  (req, res, next) => {
 		if (!req.user.admin || req.user.admin == "") {
 			return res.status(400).json({message: _auth.admin})
 		}
-		console.log('admin check success')
 		next();
 
 	}catch(err){

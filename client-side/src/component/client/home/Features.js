@@ -4,7 +4,6 @@ import { faTruckFast, faClock, faArrowsRotate } from '@fortawesome/free-solid-sv
 
 
 const Features = () => {
-    console.log('feature running ....')
     return (
         <div className='container box-border my-14 px-2 lg:px-8 justify-items-center mx-auto'>
             <p className='text-2xl w-80 mx-auto font-bold text-slate-500 text-center px-8 py-4 border-2 rounded-full hover:bg-gray-300'>

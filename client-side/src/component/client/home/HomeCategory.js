@@ -5,15 +5,13 @@ import { allCategory } from "../../../redux/reducers/categorySlice";
 import ServerMessage from '.././ServerMessage'
 
 const HomeCategory = () => {
-    console.log('home category running ....')
-
 
     const { categoryResMsg, categoryError, allCategories } = useSelector((state) => ({ ...state.category }));
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(allCategory())
-    }, [])
+    }, [dispatch])
 
     let subCategory = [];
     if (allCategories.length > 0) {

@@ -12,7 +12,7 @@ const CateSection = () => {
         if (allCategories.length <= 0) {
             dispatch(allCategory())
         }
-    }, [dispatch])
+    }, [])
 
     let subCategory = [];
 

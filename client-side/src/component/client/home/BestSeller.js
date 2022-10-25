@@ -1,5 +1,3 @@
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
@@ -8,15 +6,13 @@ import { searchProduct } from "../../../redux/reducers/productSlice";
 import ServerMessage from '.././ServerMessage'
 
 const BestSellerProduct = () => {
-    console.log('best seller running ....')
-
 
     const { productError, productResMsg, bestSellerItems } = useSelector((state) => ({ ...state.product }));
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(searchProduct({ searchKey: 'bestSeller' }))
-    }, [])
+    }, [dispatch])
 
     return (
         

@@ -1,33 +1,24 @@
-import { Fragment, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Fragment, useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faBell } from '@fortawesome/free-solid-svg-icons'
 
-
-
 export default function Navbar() {
   const [userData , setUserData] = useState(JSON.parse(localStorage.getItem('profile')) || "")
   const navigation = [
-    { name: 'Home', href: '/', current: true },
-    { name: 'Categories', href: '/categories', current: false },
-    { name: 'Products', href: '/products', current: false },
-    { name: 'Cart', href: '/cart', current: false },
+    { name: 'Home', href: '/'},
+    { name: 'Categories', href: '/categories'},
+    { name: 'Products', href: '/products'},
+    { name: 'Cart', href: '/cart'},
   ]
-  
-  //let userData = JSON.parse(localStorage.getItem('profile')) || ""
-  
-  // useEffect(() => {
-  //   userData = JSON.parse(localStorage.getItem('profile')) || ""
-  // })
-  
   
   const signOut = () => {
     setUserData("")
     localStorage.clear()
   }
-  console.log('user data is :',userData)
+
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
@@ -64,17 +55,14 @@ export default function Navbar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <Link
+                      <NavLink
                         key={item.name}
                         to={item.href}
-                        className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
-                        )}
+                        className= 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </Link>
+                      </NavLink>
                     ))}
                   </div>
                 </div>

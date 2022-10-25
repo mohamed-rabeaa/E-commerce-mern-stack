@@ -3,19 +3,22 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { dicrease, getCart, increase, remove, removeProduct } from '../../redux/reducers/cartSlice'
 import { useEffect } from 'react'
+import ServerMessage from './ServerMessage'
 
 const Tabels = () => {
-    const { cart } = useSelector((state) => ({ ...state.cart }));
+    const {cartError, cartResMsg, cart } = useSelector((state) => ({ ...state.cart }));
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getCart())
-    }, [])
+    }, [dispatch])
 
     return (
 
         <div className="col-span-2 overflow-x-auto relative shadow-md sm:rounded-lg py-8 px-2 md:p-8">
             {Object.keys(cart).length === 0 ?
-                <div>no product in cart</div> :
+            
+                <ServerMessage resMsg={cartResMsg} error={cartError} /> :
+                <div>
                 <table className="w-full text-sm text-left text-gray-500">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>
@@ -43,11 +46,11 @@ const Tabels = () => {
                                     <td className="md:p-4">
                                         <img src={item.product.img} alt='item' className='w-16 h-16' />
                                     </td>
-                                    <td className="py-4 md:px-6 font-semibold text-gray-900 text-xs md:text-md ">
+                                    <td className="py-4 w-16 md:w-auto md:px-6 font-semibold text-gray-900 text-xs md:text-md ">
                                         {item.product.name}
                                     </td>
                                     <td className="py-4 md:px-6">
-                                        <div className="flex items-center space-x-1 md:space-x-3">
+                                        <div className="flex items-center space-x-1 md:space-x-3 w-20 md:w-auto">
                                             {item.quantity > 1 &&
                                                 <button onClick={() => { dispatch(dicrease({ id: item.product._id })) }} className="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white rounded-full border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
                                                     <span className="sr-only">Quantity button</span>
@@ -79,8 +82,9 @@ const Tabels = () => {
                         }
                     </tbody>
                 </table>
-            }
             <button onClick={() => { dispatch(remove()) }} className='w-full px-auto py-2 text-red-600 border-2 rounded-md border-gray-500 font-bold mt-2 hover:bg-slate-500'>Delete Cart</button>
+            </div>
+            }
         </div>
     )
 }

@@ -64,7 +64,6 @@ exports.VerfiyToken = async (action, id, route, email) => {
 
       //send route to user email
       sendEmail(email, action, url);
-      console.log('send mail success')
 
     //send token to reset password incase forget password      
     } else if (action == 'Reset Password') {

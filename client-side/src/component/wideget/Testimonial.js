@@ -25,7 +25,7 @@ export default function Testimonial() {
             <SwiperSlide>
                 <div className="mb-12 md:mb-0">
                     <div className="flex justify-center mb-6">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(1).jpg" className="rounded-full shadow-lg w-32" />
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(1).jpg" alt='customerAvatar' className="rounded-full shadow-lg w-32" />
                     </div>
                     <h5 className="text-lg font-bold mb-4">Maria Smantha</h5>
                     <h6 className="font-medium text-blue-600 mb-4">Web Developer</h6>
@@ -86,7 +86,7 @@ export default function Testimonial() {
             <SwiperSlide>
                 <div className="mb-12 md:mb-0">
                     <div className="flex justify-center mb-6">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(2).jpg" className="rounded-full shadow-lg w-32" />
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(2).jpg" alt='customerAvatar' className="rounded-full shadow-lg w-32" />
                     </div>
                     <h5 className="text-lg font-bold mb-4">Maria Smantha</h5>
                     <h6 className="font-medium text-blue-600 mb-4">Web Developer</h6>
@@ -147,7 +147,7 @@ export default function Testimonial() {
             <SwiperSlide>
                 <div className="mb-12 md:mb-0">
                     <div className="flex justify-center mb-6">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" className="rounded-full shadow-lg w-32" />
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" alt='customerAvatar' className="rounded-full shadow-lg w-32" />
                     </div>
                     <h5 className="text-lg font-bold mb-4">Maria Smantha</h5>
                     <h6 className="font-medium text-blue-600 mb-4">Web Developer</h6>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import CartCheckOut from '../../component/categories/CartCheckOut'
-import CartTabels from '../../component/categories/CartTables'
+import CartCheckOut from '../../component/client/CartCheckOut'
+import CartTabels from '../../component/client/CartTables'
 import ServerMessage from '../../component/client/ServerMessage'
 
 const Cart = () => {

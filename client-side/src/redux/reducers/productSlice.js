@@ -1,15 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import config from "../../config";
 
 const Authorization = `Bearer ${JSON.parse(localStorage.getItem('token'))}` || "";
-
 const header = { headers: { Authorization } };
-
-//const SERVER_URL = config.apiUrl
 const SERVER_URL = process.env.REACT_APP_BASE_URL
-
-console.log('first', SERVER_URL)
 
 export const getProduct = createAsyncThunk(
     "product/getProduct",

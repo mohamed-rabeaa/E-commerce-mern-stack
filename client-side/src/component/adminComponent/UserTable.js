@@ -47,9 +47,9 @@ const UserTable = () => {
                             <FontAwesomeIcon icon={faXmark} className='w-6 h-6 ml-4' />
                         </td>
                         <td className="py-4 px-6">
-                            <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                            <Link href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
                                 <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
-                            </a>
+                            </Link>
                         </td>
                     </tr>
                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -69,9 +69,9 @@ const UserTable = () => {
                             <FontAwesomeIcon icon={faCheck} className='w-6 h-6 ml-4' />
                         </td>
                         <td className="py-4 px-6">
-                            <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                            <Link href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
                                 <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
-                            </a>
+                            </Link>
                         </td>
                     </tr>
                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -91,9 +91,9 @@ const UserTable = () => {
                             <FontAwesomeIcon icon={faCheck} className='w-6 h-6 ml-4' />
                         </td>
                         <td className="py-4 px-6">
-                            <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                            <Link href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
                                 <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
-                            </a>
+                            </Link>
                         </td>
                     </tr>
                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -113,9 +113,9 @@ const UserTable = () => {
                             <FontAwesomeIcon icon={faXmark} className='w-6 h-6 ml-4' />
                         </td>
                         <td className="py-4 px-6">
-                            <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                            <Link href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
                                 <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
-                            </a>
+                            </Link>
                         </td>
                     </tr>
                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -135,9 +135,9 @@ const UserTable = () => {
                             <FontAwesomeIcon icon={faCheck} className='w-6 h-6 ml-4' />
                         </td>
                         <td className="py-4 px-6">
-                            <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                            <Link href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
                                 <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
-                            </a>
+                            </Link>
                         </td>
                     </tr>
                 </tbody>

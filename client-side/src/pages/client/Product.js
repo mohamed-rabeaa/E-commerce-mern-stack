@@ -1,6 +1,4 @@
 import React from 'react'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useLocation } from 'react-router-dom'
 import { addItem } from '../../redux/reducers/cartSlice'
 import { useDispatch } from 'react-redux'

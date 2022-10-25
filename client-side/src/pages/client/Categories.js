@@ -1,5 +1,5 @@
 import React from 'react'
-import CateSection from '../../component/categories/CateSection'
+import CateSection from '../../component/client/CateSection'
 
 const Categories = () => {
   return (

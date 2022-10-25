@@ -41,9 +41,9 @@ const CartTable = () => {
                             7/10/2022
                         </td>
                         <td className="py-4 px-6">
-                            <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                            <Link className="font-medium text-red-600 dark:text-red-500 hover:underline">
                                 <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
-                            </a>
+                            </Link>
                         </td>
                     </tr>
                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -60,9 +60,9 @@ const CartTable = () => {
                             7/10/2022
                         </td>
                         <td className="py-4 px-6">
-                            <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                            <Link className="font-medium text-red-600 dark:text-red-500 hover:underline">
                                 <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
-                            </a>
+                            </Link>
                         </td>
                     </tr>
                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -79,9 +79,9 @@ const CartTable = () => {
                             7/10/2022
                         </td>
                         <td className="py-4 px-6">
-                            <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                            <Link className="font-medium text-red-600 dark:text-red-500 hover:underline">
                                 <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
-                            </a>
+                            </Link>
                         </td>
                     </tr>
                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -98,9 +98,9 @@ const CartTable = () => {
                             7/10/2022
                         </td>
                         <td className="py-4 px-6">
-                            <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                            <Link className="font-medium text-red-600 dark:text-red-500 hover:underline">
                                 <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
-                            </a>
+                            </Link>
                         </td>
                     </tr>
                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -117,9 +117,9 @@ const CartTable = () => {
                             7/10/2022
                         </td>
                         <td className="py-4 px-6">
-                            <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                            <Link  className="font-medium text-red-600 dark:text-red-500 hover:underline">
                                 <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
-                            </a>
+                            </Link>
                         </td>
                     </tr>
                 </tbody>

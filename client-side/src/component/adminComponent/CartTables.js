@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 const Tabels = () => {
     return (
         <div className="col-span-2 overflow-x-auto relative shadow-md sm:rounded-lg p-8">
@@ -50,9 +51,9 @@ const Tabels = () => {
                             $599
                         </td>
                         <td className="py-4 px-6">
-                            <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                            <Link className="font-medium text-red-600 dark:text-red-500 hover:underline">
                                 <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
-                            </a>
+                            </Link>
                         </td>
                     </tr>
                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -81,9 +82,9 @@ const Tabels = () => {
                             $599
                         </td>
                         <td className="py-4 px-6">
-                            <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                            <Link className="font-medium text-red-600 dark:text-red-500 hover:underline">
                                 <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
-                            </a>
+                            </Link>
                         </td>
                     </tr>
                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -112,9 +113,9 @@ const Tabels = () => {
                             $599
                         </td>
                         <td className="py-4 px-6">
-                            <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                            <Link className="font-medium text-red-600 dark:text-red-500 hover:underline">
                                 <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
-                            </a>                    </td>
+                            </Link>                    </td>
                     </tr>
                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td className="p-4 w-32">
@@ -142,9 +143,9 @@ const Tabels = () => {
                             $599
                         </td>
                         <td className="py-4 px-6">
-                            <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                            <Link className="font-medium text-red-600 dark:text-red-500 hover:underline">
                                 <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
-                            </a>                    </td>
+                            </Link>                    </td>
                     </tr>
                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td className="p-4 w-32">
@@ -172,9 +173,9 @@ const Tabels = () => {
                             $599
                         </td>
                         <td className="py-4 px-6">
-                            <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                            <Link className="font-medium text-red-600 dark:text-red-500 hover:underline">
                                 <FontAwesomeIcon icon={faTrashCan} className='w-6 h-6 ml-4' />
-                            </a>                    </td>
+                            </Link>                    </td>
                     </tr>
                 </tbody>
             </table>

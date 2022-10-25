@@ -1,20 +1,17 @@
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useEffect , memo} from 'react'
+
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import { searchProduct } from "../../../redux/reducers/productSlice";
 import { addItem } from "../../../redux/reducers/cartSlice";
 
 const RecentAdd = () => {
-    console.log('recent add running ....')
-
     const { recentItems } = useSelector((state) => ({ ...state.product }));
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(searchProduct({searchKey: 'recentProduct'}))
-    }, [])
+    }, [dispatch])
     return (
         <div className=' bg-white shadow-md p-2 mx-6 mt-20'>
             <p className='pl-4 py-2 text-2xl bg-white shadow-md font-bold text-slate-500'>
@@ -53,4 +50,4 @@ const RecentAdd = () => {
     )
 }
 
-export default memo(RecentAdd)
+export default RecentAdd

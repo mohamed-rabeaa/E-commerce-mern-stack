@@ -16,7 +16,7 @@ const Category = () => {
     if (products.length <= 0) {
       dispatch(allProduct())
     }
-  }, [dispatch])
+  }, [])
 
   let categoryItems = []
 
